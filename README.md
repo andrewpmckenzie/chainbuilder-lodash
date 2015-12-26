@@ -1,4 +1,4 @@
-# chainbuilder-lodash
+# chainbuilder-lodash [![Build Status](https://travis-ci.org/andrewpmckenzie/chainbuilder-lodash.svg)](https://travis-ci.org/andrewpmckenzie/chainbuilder-lodash)
 
 A [lodash](http://lodash.com) mixin for [chainbuilder](https://www.npmjs.com/package/chainbuilder). 
 
