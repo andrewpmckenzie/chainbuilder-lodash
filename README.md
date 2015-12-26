@@ -15,3 +15,26 @@ module.exports = chainBuilder({
   ]
 });
 ```
+
+#### including / excluding functions
+You can provide 'include' and 'exclude' options to limit the methods mixed in. e.g:
+
+```javascript
+module.exports = chainBuilder({
+  methods: {/* ... your methods ... */},
+  mixins: [
+    require('chainbuilder-lodash')({
+      include: ['map', 'reduce'] // only the map and reduce functions will be mixed in
+    })
+  ]
+});
+
+module.exports = chainBuilder({
+  methods: {/* ... your methods ... */},
+  mixins: [
+    require('chainbuilder-lodash')({
+      exclude: ['map', 'reduce'] // everything except the map and reduce functions will be mixed in
+    })
+  ]
+});
+```
