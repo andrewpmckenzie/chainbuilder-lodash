@@ -1,4 +1,4 @@
-# chainbuilder-lodash
+# chainbuilder-lodash [![Build Status](https://travis-ci.org/andrewpmckenzie/chainbuilder-lodash.svg)](https://travis-ci.org/andrewpmckenzie/chainbuilder-lodash)
 
 A [lodash](http://lodash.com) mixin for [chainbuilder](https://www.npmjs.com/package/chainbuilder). 
 
@@ -8,12 +8,22 @@ A [lodash](http://lodash.com) mixin for [chainbuilder](https://www.npmjs.com/pac
 ```javascript
 var chainBuilder = require('chainbuilder');
 
-module.exports = chainBuilder({
-  methods: {/* ... your methods ... */},
+var myChain = chainBuilder({
+  methods: {
+    inject: function (val, done) { done(null, val); },
+    /* ... your methods ... */
+  },
   mixins: [
     require('chainbuilder-lodash')()
   ]
 });
+
+myChain()
+  .inject(['one', 'two', 'three'])
+  .map(function (val) { return val + ' mississippi'; }) // < from lodash
+  .end(function (err, result) {
+    console.log(result); /* > ["one mississippi", "two mississippi", "three mississippi" */
+  });
 ```
 
 #### including / excluding functions
