@@ -10,7 +10,6 @@ var chainBuilder = require('chainbuilder');
 
 var myChain = chainBuilder({
   methods: {
-    inject: function (val, done) { done(null, val); },
     /* ... your methods ... */
   },
   mixins: [
@@ -18,8 +17,7 @@ var myChain = chainBuilder({
   ]
 });
 
-myChain()
-  .inject(['one', 'two', 'three'])
+myChain(['one', 'two', 'three'])
   .map(function (val) { return val + ' mississippi'; }) // < from lodash
   .end(function (err, result) {
     console.log(result); /* > ["one mississippi", "two mississippi", "three mississippi" */
