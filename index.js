@@ -5,7 +5,7 @@ module.exports = function (options) {
   var manualExclude = options.exclude;
   var onlyInclude = options.include;
 
-  var excludes = ['chain', 'support', 'tap', 'templateSettings', 'transform'].concat(manualExclude);
+  var excludes = ['chain', 'support', 'tap', 'templateSettings', 'transform', 'clone', 'inject'].concat(manualExclude);
 
   var includeMap = onlyInclude && lodash.indexBy(onlyInclude);
   var excludeMap = lodash.indexBy(excludes);

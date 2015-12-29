@@ -5,15 +5,14 @@ describe('chainbuilder-lodash', function () {
   it('should mix in lodash methods', function (done) {
     var myChain = chainBuilder({
       methods: {
-        testArray: function (done) { done(null, ['one', 'two', 'three']); }
+        inject: function (value, done) { done(null, value); }
       },
       mixins: [
         require('..')()
       ]
     });
 
-    myChain()
-      .testArray()
+    myChain(['one', 'two', 'three'])
 
       // map + reduce
       .map(function (v) { return v + v.length; })
@@ -24,15 +23,15 @@ describe('chainbuilder-lodash', function () {
       })
 
       // isString
-      .testArray()
+      .inject(1)
       .isString()
       .tap(function (err, result) {
         if (err) return;
         assert.equal(result, false);
       })
 
-      .testArray()
-      .isArray()
+      .inject(1)
+      .isNumber()
       .tap(function (err, result) {
         if (err) return;
         assert.equal(result, true);

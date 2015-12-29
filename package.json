@@ -1,6 +1,6 @@
 {
   "name": "chainbuilder-lodash",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lodash mixin for chainbuilder.",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "chai": "^3.4.1",
-    "chainbuilder": "^1.0.10",
+    "chainbuilder": "^2.0.0",
     "mocha": "^2.3.4",
     "sinon": "^1.17.2"
   }
