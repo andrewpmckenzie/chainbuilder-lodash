@@ -4,9 +4,6 @@ var chainBuilder = require('chainbuilder');
 describe('chainbuilder-lodash', function () {
   it('should mix in lodash methods', function (done) {
     var myChain = chainBuilder({
-      methods: {
-        inject: function (value, done) { done(null, value); }
-      },
       mixins: [
         require('..')()
       ]
