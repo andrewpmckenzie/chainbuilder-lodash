@@ -61,4 +61,20 @@ describe('chainbuilder-lodash', function () {
     assert.equal(typeof myChain().isArray, 'function');
     assert.equal(typeof myChain().reduce, 'function');
   });
+
+  it('runs passed functions with context', function (done) {
+    var myChain = chainBuilder({
+      mixins: [
+        require('..')()
+      ]
+    });
+
+    myChain([10, 20])
+      .map(function () { return this.previousResult(); })
+      .tap(function (err, result) {
+        if (err) return err;
+        assert.deepEqual(result, [[10, 20], [10, 20]]);
+      })
+      .end(done);
+  });
 });

@@ -16,6 +16,9 @@ module.exports = function (options) {
       var done = arguments[arguments.length - 1];
       var args = Array.prototype.slice.call(arguments, 0, arguments.length - 1);
       args.unshift(this.previousResult());
+      args = lodash.map(args, function (arg) {
+        return typeof arg === 'function' ? arg.bind(this) : arg;
+      }.bind(this));
       var result = method.apply(lodash, args);
       done(null, result);
     }
