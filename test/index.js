@@ -44,7 +44,7 @@ describe('chainbuilder-lodash', function () {
     });
 
     assert.equal(typeof myChain().map, 'function');
-    assert.equal(typeof myChain().indexBy, 'function');
+    assert.equal(typeof myChain().keyBy, 'function');
     assert.equal(typeof myChain().isArray, 'function');
     assert.equal(typeof myChain().reduce, 'undefined');
   });

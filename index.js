@@ -7,8 +7,8 @@ module.exports = function (options) {
 
   var excludes = ['chain', 'support', 'tap', 'templateSettings', 'transform', 'clone', 'inject'].concat(manualExclude);
 
-  var includeMap = onlyInclude && lodash.indexBy(onlyInclude);
-  var excludeMap = lodash.indexBy(excludes);
+  var includeMap = onlyInclude && lodash.keyBy(onlyInclude);
+  var excludeMap = lodash.keyBy(excludes);
 
   var wrappedMethods = {};
   var wrap = function (methodName, method) {
